@@ -67,13 +67,13 @@ def get_markdown_ast(markdown_file):
 def jsonify_markdown(markdown_file, outfile, indent):
     nester = CMarkASTNester()
     renderer = Renderer()
-    with writable_io_or_stdout(outfile) as f:
-        ast = get_markdown_ast(markdown_file)
-        nested = nester.nest(ast)
-        rendered = renderer.stringify_dict(nested)
-        json.dump(rendered, f, indent=indent)
-        f.write("\n")
-    return 0
+    # with writable_io_or_stdout(outfile) as f:
+    #    ast = get_markdown_ast(markdown_file)
+    #    nested = nester.nest(ast)
+    #    rendered = renderer.stringify_dict(nested)
+    #    json.dump(rendered, f, indent=indent)
+    #    f.write("\n")
+    return json.dumps(rendered, indent=indent)
 
 
 def main(args=[]):
